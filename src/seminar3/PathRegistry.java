@@ -1,10 +1,10 @@
 package seminar3;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PathRegistry {
-	private Map<String, String> urlToPath = new HashMap<>();
+	private Map<String, String> urlToPath = new ConcurrentHashMap<>();
 	
 	public PathRegistry() {
 	}

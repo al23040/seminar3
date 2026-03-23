@@ -31,9 +31,13 @@ public class CrawlerMain {
 		System.out.print("Depth ->");
 		int maxDepth = scanner.nextInt();
 		scanner.close();
-		
+		long startTime = System.currentTimeMillis();
 		CrawlerManager crawlerManager = new CrawlerManager(baseDir);
 		crawlerManager.start(url, baseDir, maxDepth);
+		long endTime = System.currentTimeMillis();
+		long timeElapsed = endTime - startTime;
+		double seconds = timeElapsed / 1000.0;
 		System.out.println("終了");
+		System.out.println("実行時間: " + seconds + " 秒 (" + timeElapsed + " ms)");
 		}
 }
