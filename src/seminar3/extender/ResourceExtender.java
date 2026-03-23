@@ -24,13 +24,16 @@ public abstract class ResourceExtender {
 		
 		for (Element element : elements) {
 			String url = getTargetUrl(element);
-			if (url == null || url.isEmpty()) continue;
+			if (url == null || url.isEmpty() || url.startsWith("data:")) continue;
 			
 			String localPath;
 			if (pathRegistry.isRegistered(url)) {
 				localPath = pathRegistry.getPath(url);
 			} else {
 				localPath = downloadResource(url);
+				if (localPath == null) {
+					continue;
+				}
 				pathRegistry.register(url, localPath);
 			}
 			rewriteAttr(element, localPath);

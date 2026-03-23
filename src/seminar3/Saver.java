@@ -33,9 +33,10 @@ public class Saver {
 			URL url = new URL(urlStr);
 			connection = (HttpURLConnection)url.openConnection();
 			connection.setRequestProperty("User-Agent", "MyCrawler/1.0 (al23040@shibaura-it.ac.jp)");
+			//connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
 			connection.setRequestMethod("GET");
-			connection.setConnectTimeout(5000);
-			connection.setReadTimeout(5000);
+			connection.setConnectTimeout(1000);
+			connection.setReadTimeout(1000);
 			String contentType =connection.getContentType();
 			
 			if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
@@ -58,7 +59,8 @@ public class Saver {
 			URL url = new URL(urlStr);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestProperty("User-Agent", "MyCrawler/1.0 (al23040@shibaura-it.ac.jp)");
-			connection.setConnectTimeout(5000);
+			//connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+			connection.setConnectTimeout(1000);
 			save(connection, path);
         } catch (Exception e) {
             System.err.println("ダウンロードエラー");
